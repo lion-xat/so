@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الأسطورة ساندي - مركز رفع الصور</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ font-family:Tahoma,Arial;
+ background:radial-gradient(circle,#6b0000,#180000 75%);
+ color:white;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ padding:20px;
+}
+
+.container{
+ width:100%;
+ max-width:480px;
+ background:#210000;
+ border:2px solid red;
+ border-radius:20px;
+ padding:25px;
+ text-align:center;
+ box-shadow:0 0 15px red,0 0 35px #900;
+}
+
+.logo{
+ font-size:34px;
+ font-weight:bold;
+ color:white;
+ animation:light 1.2s infinite;
+ text-shadow:0 0 10px white;
+ margin-bottom:8px;
+}
+
+@keyframes light{
+ 0%,100%{opacity:1;text-shadow:0 0 15px white,0 0 30px red}
+ 50%{opacity:.25;text-shadow:none}
+}
+
+.subtitle{
+ color:#ffbaba;
+ margin-bottom:25px;
+}
+
+.upload{
+ display:block;
+ width:100%;
+ padding:17px;
+ margin:15px 0;
+ border:2px solid white;
+ border-radius:12px;
+ background:#a00000;
+ color:white;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer;
+ animation:buttonLight 1.5s infinite;
+}
+
+@keyframes buttonLight{
+ 0%,100%{box-shadow:0 0 5px white,0 0 15px red}
+ 50%{box-shadow:none;border-color:#650000}
+}
+
+.upload:hover{
+ background:#e00000;
+}
+
+input[type=file]{display:none}
+
+.preview{
+ max-width:100%;
+ max-height:250px;
+ border-radius:12px;
+ margin-top:15px;
+ display:none;
+ border:2px solid white;
+}
+
+.result{
+ display:none;
+ margin-top:20px;
+ padding:15px;
+ background:#370000;
+ border-radius:10px;
+ overflow-wrap:anywhere;
+}
+
+.result a{color:#fff}
+
+.copy{
+ background:#fff;
+ color:#900;
+ padding:10px 20px;
+ border:0;
+ border-radius:8px;
+ cursor:pointer;
+ margin-top:12px;
+ font-weight:bold;
+}
+
+.status{
+ color:#ffbaba;
+ margin:15px;
+}
+
+footer{
+ margin-top:25px;
+ color:white;
+ font-size:13px;
+ opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">★ الأسطورة ساندي ★</div>
+
+<div class="subtitle">
+مركز رفع الصور المباشر
+
+:ملاحظة  تم   بناء الموقع  على سيرفرات العراق  لذلك  لا يحتاج  الانترنت  الخاص  بك  في  حال كان  الانترنت    تبعك  ضعيف !
+</div>
+
+<label class="upload" for="photo">
+📷 اختر صورة للرفع
+</label>
+
+<input type="file" id="photo" accept="image/*">
+
+<img id="preview" class="preview">
+
+<button class="upload" onclick="uploadImage()">
+⬆ رفع الصورة الآن
+</button>
+
+<div class="status" id="status">
+بانتظار اختيار صورة...
+</div>
+
+<div class="result" id="result">
+تم تجهيز رابط الصورة
+<br><br>
+<a id="imageLink" target="_blank"></a>
+<br>
+<button class="copy" onclick="copyLink()">
+نسخ رابط الصورة
+</button>
+</div>
+
+<footer>
+جميع الحقوق محفوظة © الأسطورة ساندي
+تصميم  الموقع  ليون  العراقي
+</footer>
+
+</div>
